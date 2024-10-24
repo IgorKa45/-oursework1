@@ -190,11 +190,7 @@ public class Main {
     public static void getAllemployeesDepartment(byte department) {
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] != null && employees[i].getDepartment() == department) {
-                System.out.print("id: " + employees[i].getId() + ". ");
-                System.out.print("ФИО: " + employees[i].getName() + " ");
-                System.out.print(employees[i].getSurName() + " ");
-                System.out.print(employees[i].getMiddlename() + ". ");
-                System.out.println("Зарплата: " + employees[i].getSalary() + ". ");
+                System.out.println(employees[i].toStringNoDepartment());
             }
         }
     }

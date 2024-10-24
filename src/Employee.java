@@ -66,6 +66,10 @@ public class Employee {
         return "id: " + id + " Имя: " + name + " Фамилия: " + surname + " Отчество: " + middlename + " Отдел: " + department + " Зарплата: " + salary;
     }
 
+    public String toStringNoDepartment() {
+        return "id: " + id + " Имя: " + name + " Фамилия: " + surname + " Отчество: " + middlename + " Зарплата: " + salary;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
