@@ -86,15 +86,15 @@ public class Main {
         return salarySum;
     }
 
-    //Минимальная зарплта
+    //Минимальная зарплата
     public static double getSalaryMin() {
-        double salaryMin = employees[0].getSalary();
+        Employee min = null;
         for (int i = 0; i < employees.length; i++) {
-            if (employees[i] != null && salaryMin > employees[i].getSalary()) {
-                salaryMin = employees[i].getSalary();
+            if (employees[i] != null && (min == null || employees[i].getSalary() < min.getSalary())) {
+                min = employees[i];
             }
         }
-        return salaryMin;
+        return min.getSalary();
     }
 
     //Максимальная зарплата
@@ -118,8 +118,7 @@ public class Main {
                 employeeNumCheck++;
             }
         }
-        averageSalary = averageSalary / employeeNumCheck;
-        return averageSalary;
+        return averageSalary / employeeNumCheck;
     }
 
     //Таблица сотрудников
@@ -127,8 +126,6 @@ public class Main {
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] != null) {
                 System.out.println(employees[i].toString());
-            } else {
-                break;
             }
         }
     }
@@ -138,8 +135,6 @@ public class Main {
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] != null) {
                 employees[i].setSalary(employees[i].getSalary() * indexPercent);
-            } else {
-                break;
             }
         }
     }

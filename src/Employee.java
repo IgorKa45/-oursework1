@@ -1,15 +1,19 @@
 import java.util.Objects;
 
 public class Employee {
+    // Константы
+    public static final byte minDepartment = 1;
+    public static final byte maxDepartment = 5;
+    //Счётчик
+    private int id;
+
     private String name; //Имя сотрудника
     private String surname; //Фамилия сотрудника
     private String middlename; //Отчество сотрудника
-    byte department; //Отдел
+    private byte department; //Отдел
     private double salary; //Зарплата
 
-    //Счётчик
-    private int id;
-    private static int idGrow = 0;
+    private static int idGrow;
 
     public Employee(String name, String surname, String middlename, byte department, double salary) {
         this.name = name;
@@ -45,7 +49,7 @@ public class Employee {
     }
 
     public void setDepartment(byte department) {
-        if (department >= 1 && department <= 5) {
+        if (department >= minDepartment && department <= maxDepartment) {
             this.department = department;
         } else {
             System.out.println("Ошибка. Данного отдела не существует.");
@@ -70,14 +74,13 @@ public class Employee {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        ;
         Employee employee = (Employee) o;
         return this.name.equals(employee.name) && this.surname.equals(employee.surname) && this.middlename.equals(employee.middlename) && department == employee.department && salary == employee.salary;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name + surname + middlename + department + salary);
+        return Objects.hash(id + name + surname + middlename + department + salary);
     }
 
 }
